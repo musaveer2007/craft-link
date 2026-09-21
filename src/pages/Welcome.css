@@ -1,0 +1,330 @@
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  background-color: #FFFFFF;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%);
+  position: relative;
+  overflow: hidden; /* No horizontal scroll */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Organic Blue Decorative Shapes */
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+}
+
+.welcome-container.loaded .bg-shape {
+  opacity: 1;
+}
+
+.shape-top-left {
+  top: -10%;
+  left: -20%;
+  width: 300px;
+  height: 300px;
+  background-color: #EFF6FF;
+  animation: float-slow 10s ease-in-out infinite alternate;
+}
+
+.shape-top-right {
+  top: 5%;
+  right: -10%;
+  width: 150px;
+  height: 150px;
+  background-color: #DBEAFE;
+  opacity: 0.4 !important;
+  animation: float-slow-reverse 12s ease-in-out infinite alternate;
+}
+
+.shape-bottom-right {
+  bottom: -10%;
+  right: -20%;
+  width: 350px;
+  height: 350px;
+  background-color: #EFF6FF;
+  animation: float-slow 12s ease-in-out infinite alternate;
+}
+
+.shape-bottom-left {
+  bottom: 20%;
+  left: -5%;
+  width: 100px;
+  height: 100px;
+  background-color: #BFDBFE;
+  opacity: 0.3 !important;
+  animation: float-slow-reverse 9s ease-in-out infinite alternate;
+}
+
+@keyframes float-slow {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  100% { transform: translate(20px, 15px) rotate(5deg) scale(1.05); }
+}
+
+@keyframes float-slow-reverse {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-15px, -20px) scale(0.95); }
+}
+
+/* Main Content Wrapper */
+.welcome-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 40px 24px 32px;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+/* Brand Header */
+.brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.welcome-container.loaded .brand-header {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2563EB;
+  margin-bottom: 8px;
+}
+
+.brand-leaf-icon {
+  margin-top: -4px;
+}
+
+.brand-logo h1 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  margin: 0;
+}
+
+.brand-tagline {
+  font-size: 17px;
+  color: #475569;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+}
+
+.welcome-container.loaded .brand-tagline {
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Hero Artisan Object */
+.hero-visual-container {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.welcome-container.loaded .hero-visual-container {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+}
+
+.hero-backdrop-circle {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background-color: #EFF6FF;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.hero-image {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  animation: subtle-float 5s ease-in-out infinite alternate;
+}
+
+.hero-decorative-leaf {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  color: #BFDBFE;
+  z-index: 0;
+  transform: rotate(-15deg);
+}
+
+.hero-decorative-dots {
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
+  width: 40px;
+  height: 40px;
+  background-image: radial-gradient(#BFDBFE 2px, transparent 2px);
+  background-size: 10px 10px;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+@keyframes subtle-float {
+  0% { transform: translateY(4px); }
+  100% { transform: translateY(-4px); }
+}
+
+/* Floating Content Card */
+.floating-welcome-card {
+  position: relative;
+  z-index: 20;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 26px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 20px 60px rgba(30, 58, 138, 0.08);
+  margin-top: auto;
+  margin-bottom: env(safe-area-inset-bottom, 16px);
+  
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.welcome-container.loaded .floating-welcome-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+}
+
+.card-headline {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+.text-dark {
+  color: #0F172A;
+}
+
+.text-blue {
+  color: #2563EB;
+}
+
+.card-copy {
+  font-size: 15px;
+  color: #64748B;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  max-width: 280px;
+}
+
+/* Primary CTA */
+.get-started-btn {
+  width: 100%;
+  height: 52px;
+  background-color: #2563EB;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  
+  opacity: 0;
+}
+
+.welcome-container.loaded .get-started-btn {
+  animation: fadeInBtn 0.5s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInBtn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.get-started-btn:active {
+  transform: scale(0.97);
+  background-color: #1D4ED8;
+}
+
+.get-started-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+}
+
+.btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.get-started-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Pagination / Visual Indicator */
+.pagination-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #BFDBFE;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #2563EB;
+  width: 20px;
+  border-radius: 3px;
+}

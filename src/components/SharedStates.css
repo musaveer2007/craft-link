@@ -1,0 +1,62 @@
+.shared-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-8) var(--spacing-6);
+  text-align: center;
+  flex-grow: 1;
+  min-height: 400px;
+  background-color: var(--color-background);
+}
+
+.shared-state-icon {
+  margin-bottom: var(--spacing-4);
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface);
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+}
+
+.shared-state-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-2);
+}
+
+.shared-state-desc {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  max-width: 280px;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-6);
+}
+
+.shared-state-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  width: 100%;
+  max-width: 240px;
+}
+
+/* Subtle Skeleton Loader */
+.subtle-loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: subtleSpin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  margin-bottom: var(--spacing-4);
+}
+
+@keyframes subtleSpin {
+  to { transform: rotate(360deg); }
+}
