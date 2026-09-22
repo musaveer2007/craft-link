@@ -12,6 +12,7 @@ import ReviewEditProduct from './pages/ReviewEditProduct';
 import ProductPreview from './pages/ProductPreview';
 import ProductSuccess from './pages/ProductSuccess';
 import ProductManage from './pages/ProductManage';
+import ManualAddProduct from './pages/ManualAddProduct';
 import ArtisanOrders from './pages/ArtisanOrders';
 import OrderDetails from './pages/OrderDetails';
 import CustomerHome from './pages/CustomerHome';
@@ -64,8 +65,8 @@ function App() {
           <Route path="/artisan/orders" element={<ArtisanOrders />} />
           <Route path="/artisan/orders/:id" element={<OrderDetails />} />
           
-          {/* Placeholders for other artisan routes */}
-          <Route path="/artisan/products/add/manual" element={<div style={{ padding: '24px' }}><h2>Manual Add Placeholder</h2></div>} />
+          {/* Manual Add Flow */}
+          <Route path="/artisan/products/add/manual" element={<ManualAddProduct />} />
           
           {/* Customer Flow */}
           <Route path="/customer/product/:id" element={<CustomerProduct />} />
